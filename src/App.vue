@@ -1,29 +1,13 @@
 <template>
-  <div class="shadow" :style="{
-    left: mouseX + 'px',
-    top: mouseY + 'px',
-  }" />
+  <div id="app">
+    <!-- <Nav /> -->
+    <Nameplate />
+    <CursorShadow />
+  </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      mouseX: 0,
-      mouseY: 0,
-    };
-  },
-  methods: {
-    handleMouseMove(e) {
-      this.mouseX = e.clientX;
-      this.mouseY = e.clientY;
-    },
-  },
-  mounted() {
-    window.addEventListener("mousemove", this.handleMouseMove);
-  },
-  beforeUnmount() {
-    window.removeEventListener("mousemove", this.handleMouseMove);
-  },
-};
+<script setup>
+// import Nav from './components/Nav.vue'
+import CursorShadow from './components/CursorShadow.vue'
+import Nameplate from './components/Nameplate.vue'
 </script>
