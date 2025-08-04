@@ -1,13 +1,12 @@
 <template>
-  <div id="app">
-    <!-- <Nav /> -->
-    <Nameplate />
+  <div>
     <CursorShadow />
+    <Nav />
+    <router-view />
   </div>
 </template>
 
 <script setup>
-// import Nav from './components/Nav.vue'
+import Nav from './components/Nav.vue'
 import CursorShadow from './components/CursorShadow.vue'
-import Nameplate from './components/Nameplate.vue'
 </script>

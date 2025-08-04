@@ -36,7 +36,7 @@ export default {
   background-color: rgba(30, 48, 138, 0.1);
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  filter: blur(300px);
+  filter: blur(100px);
   pointer-events: none;
   z-index: -1;
 }
