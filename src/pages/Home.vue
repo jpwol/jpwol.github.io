@@ -3,7 +3,7 @@
     <div
       class="w-full lg:fixed lg:left-20 lg:h-screen lg:w-1/2 p-10 z-10 flex flex-col justify-between"
     >
-      <header class="space-y-4 mt-20">
+      <header class="space-y-4 lg:mt-20">
         <h1 class="text-5xl font-bold">Josh Wolfe</h1>
         <h2 class="text-2xl text-gray-300">Low-Level Software Engineer</h2>
         <a

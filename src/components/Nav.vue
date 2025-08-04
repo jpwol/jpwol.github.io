@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="fixed top-0 w-full z-50 bg-none text-white p-4 flex justify-between items-around"
+    class="lg:fixed top-0 w-full z-50 bg-none text-white p-4 flex justify-between items-around"
   >
     <div class="text-xl font-bold pr-5">{{ pageTitle }}</div>
 
