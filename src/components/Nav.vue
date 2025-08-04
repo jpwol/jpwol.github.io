@@ -1,55 +1,31 @@
 <template>
-  <nav class="bg-none text-white p-4 flex">
-    <div class="text-xl font-bold pr-5">My Website</div>
+  <nav
+    class="fixed top-0 w-full z-50 bg-none text-white p-4 flex justify-between items-around"
+  >
+    <div class="text-xl font-bold pr-5">{{ pageTitle }}</div>
 
-    <div class="relative" ref="menuWrapper">
-      <button class=" px-4 py-2 rounded hover:bg-gray-700" @click="toggleDropdown">
-        Menu
-      </button>
-
-      <transition name="fade-slide">
-        <div v-if="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white text-black rounded shadow-lg z-10">
-          <router-link to="/" class="block px-4 py-2 hover:bg-gray-100">Home</router-link>
-          <router-link to="/about" class="block px-4 py-2 hover:bg-gray-100">About</router-link>
-        </div>
-      </transition>
+    <div class="flex space-x-6">
+      <router-link to="/" class="hover:underline">Home</router-link>
+      <router-link to="/projects" class="hover:underline">Projects</router-link>
+      <!-- <router-link to="/temp" class="hover:underline">For You</router-link> -->
     </div>
   </nav>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { computed } from "vue";
+import { useRoute } from "vue-router";
 
-const dropdownOpen = ref(false)
-const menuWrapper = ref(null)
-
-const toggleDropdown = () => {
-  dropdownOpen.value = !dropdownOpen.value
-}
-
-const handleClickOutside = (event) => {
-  if (
-    dropdownOpen.value &&
-    menuWrapper.value &&
-    !menuWrapper.value.contains(event.target)
-  ) {
-    dropdownOpen.value = false
-  }
-}
-
-onMounted(() => {
-  document.addEventListener('click', handleClickOutside)
-})
-
-onBeforeUnmount(() => {
-  document.removeEventListener('click', handleClickOutside)
-})
+const route = useRoute();
+const pageTitle = computed(() => route.meta.title);
 </script>
 
 <style>
 .fade-slide-enter-active,
 .fade-slide-leave-active {
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 .fade-slide-enter-from,
