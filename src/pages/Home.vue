@@ -1,50 +1,27 @@
 <template>
   <div class="relative text-white lg:flex">
-    <div
-      class="w-full lg:fixed lg:left-20 lg:h-screen lg:w-1/2 lg:p-10 md:p-10 p-5 z-10 flex flex-col justify-between"
-    >
+    <div class="w-full lg:fixed lg:left-20 lg:h-screen lg:w-1/2 lg:p-10 md:p-10 p-5 z-10 flex flex-col justify-between">
       <header class="lg:space-y-4 space-y-2 lg:mt-20">
         <h1 class="lg:text-5xl text-3xl font-bold">Josh Wolfe</h1>
         <h2 class="lg:text-2xl text-xl text-gray-300">
           Low-Level Software Engineer
         </h2>
-        <a
-          href="https://wilkes.edu"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="lg:text-xl text-xl text-sky-300 hover:text-white transform transition-all duration-300 hover:text-2xl"
-          >Wilkes University</a
-        >
+        <a href="https://wilkes.edu" target="_blank" rel="noopener noreferrer"
+          class="lg:text-xl text-xl text-sky-300 hover:text-white transform transition-all duration-300 hover:text-2xl">Wilkes
+          University</a>
       </header>
       <div class="flex space-x-4 lg:mb-20 pt-10">
         <a href="https://github.com/jpwol" target="_blank" rel="noopener">
-          <img
-            src="../assets/github.svg"
-            alt="Github"
-            class="w-6 h-6 mt-1 transition-transform transform hover:scale-125"
-          />
+          <img src="../assets/github.svg" alt="Github"
+            class="w-6 h-6 mt-1 transition-transform transform hover:scale-125" />
         </a>
-        <a
-          href="https://www.linkedin.com/in/joshua-wolfe-596197359/"
-          target="_blank"
-          rel="noopener"
-        >
-          <img
-            src="../assets/linkedin.svg"
-            alt="LinkedIn"
-            class="w-8 h-8 invert transition-transform transform hover:scale-125"
-          />
+        <a href="https://www.linkedin.com/in/joshua-wolfe-596197359/" target="_blank" rel="noopener">
+          <img src="../assets/linkedin.svg" alt="LinkedIn"
+            class="w-8 h-8 invert transition-transform transform hover:scale-125" />
         </a>
-        <a
-          href="https://www.instagram.com/wolfe_man_/"
-          target="_blank"
-          rel="noopener"
-        >
-          <img
-            src="../assets/instagram.svg"
-            alt="Github"
-            class="w-8 h-8 invert transition-transform transform hover:scale-125"
-          />
+        <a href="https://www.instagram.com/wolfe_man_/" target="_blank" rel="noopener">
+          <img src="../assets/instagram.svg" alt="Github"
+            class="w-8 h-8 invert transition-transform transform hover:scale-125" />
         </a>
       </div>
     </div>
@@ -139,6 +116,7 @@
     opacity: 0;
     transform: translateX(-30px);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
@@ -150,6 +128,7 @@
     opacity: 0;
     transform: translateX(30px);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
