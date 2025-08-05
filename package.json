@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
   },
   "dependencies": {
     "vue": "^3.5.17",
@@ -16,7 +15,6 @@
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.11",
     "@vitejs/plugin-vue": "^6.0.0",
-    "gh-pages": "^6.3.0",
     "tailwindcss": "^4.1.11",
     "vite": "^7.0.6"
   }
