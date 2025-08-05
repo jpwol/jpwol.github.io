@@ -1,48 +1,108 @@
 <template>
-  <header class="fixed top-20 left-10 text-white">
-    <h1 class="text-[50px]">Hello Trinity...</h1>
-    <h2 class="text-[30px]">Can I take you to dinner? 🌹</h2>
+  <div class="p-10 text-white text-center space-y-6">
+    <transition name="fade-slide">
+      <h1 v-if="showHello" class="text-5xl font-bold">Hi Trinity</h1>
+    </transition>
 
-    <div>
-      <button class="clickme" @click="openLink">Maybe here?</button>
-    </div>
-  </header>
+    <transition name="fade">
+      <button
+        v-if="showPrompt"
+        @click="handleContinue"
+        class="text-xl text-sky-300 hover:text-white transition"
+      >
+        Click to Continue
+      </button>
+    </transition>
+
+    <transition name="fade-slide">
+      <div v-if="showNext" class="space-y-4">
+        <h2 class="text-3xl text-gray-300">I have a question</h2>
+      </div>
+    </transition>
+
+    <transition name="fade">
+      <button
+        v-if="showPrompt2"
+        @click="handleContinue2"
+        class="text-xl text-sky-300 hover:text-white transition"
+      >
+        Click to Continue
+      </button>
+    </transition>
+
+    <transition name="fade-slide">
+      <div v-if="showNext2" class="space-y-4">
+        <h2 class="text-3xl text-gray-300">Can I take you to dinner?</h2>
+      </div>
+    </transition>
+    <transition name="fade-slide">
+      <div v-if="showNext3" class="space-y-4">
+        <h2 class="text-2xl text-gray-300">Please RSVP at your local Josh</h2>
+      </div>
+    </transition>
+  </div>
 </template>
 
 <script setup>
-const openLink = () => {
-  window.open('https://github.com/jpwol', '_blank')
+import { ref, onMounted } from "vue";
+
+const showHello = ref(false);
+const showPrompt = ref(false);
+const showPrompt2 = ref(false);
+const showNext = ref(false);
+const showNext2 = ref(false);
+const showNext3 = ref(false);
+
+onMounted(() => {
+  setTimeout(() => (showHello.value = true), 500);
+  setTimeout(() => (showPrompt.value = true), 1300);
+});
+
+function handleContinue() {
+  showPrompt.value = false;
+  setTimeout(() => {
+    showNext.value = true;
+  }, 500);
+
+  setTimeout(() => {
+    showPrompt2.value = true;
+  }, 1200);
+}
+
+function handleContinue2() {
+  showPrompt2.value = false;
+  setTimeout(() => {
+    showNext2.value = true;
+  }, 500);
+  setTimeout(() => {
+    showNext3.value = true;
+  }, 1500);
 }
 </script>
 
-<style>
-@keyframes bounce {
-  0% {
-    transform: translateY(20px);
-  }
-
-  50% {
-    transform: translateY(10px);
-  }
-
-  100% {
-    transform: translateY(20px);
-  }
+<style scoped>
+.fade-slide-enter-active {
+  transition: all 0.6s ease;
+}
+.fade-slide-enter-from {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+.fade-slide-enter-to {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.clickme {
-  display: inline-block;
-  transform: translateY(20px);
-  font-size: 20px;
-  /* transition: all 0.3s ease-in-out; */
-
-  &:hover {
-    animation: bounce 0.5s ease-in-out;
-    padding: 0 10px 0 10px;
-    background-color: pink;
-    color: red;
-    border-radius: 20px;
-    box-shadow: 3px 10px 0 0 red;
-  }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
 }
 </style>

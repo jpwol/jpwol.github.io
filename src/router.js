@@ -17,7 +17,7 @@ const routes = [
     meta: { title: "Projects" },
   },
   {
-    path: "/temp",
+    path: "/secret",
     name: "For You",
     component: Temp,
     meta: { title: "For You" },
