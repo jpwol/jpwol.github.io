@@ -1,13 +1,10 @@
 <template>
-  <nav
-    class="lg:fixed top-0 w-full z-50 bg-none text-white p-4 flex justify-between items-around"
-  >
+  <nav class="lg:fixed top-0 w-full z-50 bg-none text-white p-4 flex justify-between items-around">
     <div class="text-xl font-bold pr-5">{{ pageTitle }}</div>
 
     <div class="flex space-x-6">
       <router-link to="/" class="hover:underline">Home</router-link>
       <router-link to="/projects" class="hover:underline">Projects</router-link>
-      <!-- <router-link to="/temp" class="hover:underline">For You</router-link> -->
     </div>
   </nav>
 </template>
