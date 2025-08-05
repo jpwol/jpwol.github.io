@@ -16,12 +16,12 @@ const routes = [
     component: Projects,
     meta: { title: "Projects" },
   },
-  // {
-  //   path: "/temp",
-  //   name: "For You",
-  //   component: Temp,
-  //   meta: { title: "For You" },
-  // },
+  {
+    path: "/temp",
+    name: "For You",
+    component: Temp,
+    meta: { title: "For You" },
+  },
 ];
 
 const router = createRouter({
