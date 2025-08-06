@@ -1,7 +1,7 @@
 <template>
   <div class="p-10 text-white text-center space-y-6">
     <transition name="fade-slide">
-      <h1 v-if="showHello" class="text-5xl font-bold">Hi Trinity</h1>
+      <h1 v-if="showHello" class="text-5xl font-bold">Miss you</h1>
     </transition>
 
     <transition name="fade">
@@ -16,28 +16,7 @@
 
     <transition name="fade-slide">
       <div v-if="showNext" class="space-y-4">
-        <h2 class="text-3xl text-gray-300">I have a question</h2>
-      </div>
-    </transition>
-
-    <transition name="fade">
-      <button
-        v-if="showPrompt2"
-        @click="handleContinue2"
-        class="text-xl text-sky-300 hover:text-white transition"
-      >
-        Click to Continue
-      </button>
-    </transition>
-
-    <transition name="fade-slide">
-      <div v-if="showNext2" class="space-y-4">
-        <h2 class="text-3xl text-gray-300">Can I take you to dinner?</h2>
-      </div>
-    </transition>
-    <transition name="fade-slide">
-      <div v-if="showNext3" class="space-y-4">
-        <h2 class="text-2xl text-gray-300">Please RSVP at your local Josh</h2>
+        <h2 class="text-3xl text-gray-300">Let's watch another movie or something</h2>
       </div>
     </transition>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="relative text-white lg:flex">
-    <div class="w-full lg:fixed lg:left-20 lg:h-screen lg:w-1/2 lg:p-10 md:p-10 p-5 z-10 flex flex-col justify-between">
+    <div class="w-full lg:fixed lg:left-[10%] lg:h-screen lg:w-1/2 lg:p-10 md:p-10 p-5 z-10 flex flex-col justify-between">
       <header class="lg:space-y-4 space-y-2 lg:mt-20">
         <h1 class="lg:text-5xl text-3xl font-bold">Josh Wolfe</h1>
         <h2 class="lg:text-2xl text-xl text-gray-300">
@@ -27,8 +27,8 @@
     </div>
 
     <div class="lg:ml-[50%] lg:p-10 md:pl-10 md:pr-10 pl-5 pr-5">
-      <section class="lg:max-w-xl space-y-6 lg:pt-14 pb-6">
-        <h1 class="text-2xl font-bold pt-6 pb-2">About Me</h1>
+      <section class="lg:max-w-xl space-y-6 lg:pt-14 pb-6 text-gray-300">
+        <h1 class="text-2xl text-white font-bold pt-6 pb-2">About Me</h1>
         <p>
           Hi, I’m Josh Wolfe, a former fine-finish carpenter turned low-level
           software engineer.
