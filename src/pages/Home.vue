@@ -1,32 +1,43 @@
 <template>
+  <!-- desktop hero -->
+  <section class="relative w-full h-[400px] bg-black overflow-hidden border-4 border-b-blue-200" v-if"!isMobile">
+    <canvas ref="canvas" class="absolute top-0 left-0 w-full h-full"></canvas>
+
+    <div class="relative z-10 flex flex-col items-center justify-center h-full text-white">
+      <h1 class="text-4xl font-bold">Josh Wolfe</h1>
+      <p class="mt-4 text-lg opacity-80">Low-Level Software Engineer</p>
+    </div>
+  </section>
+
+  <!-- TODO: mobile hero here -->
+
+  <!-- left side content -->
   <div class="relative text-white lg:flex">
-    <div class="w-full lg:fixed lg:left-[10%] lg:h-screen lg:w-1/2 lg:p-10 md:p-10 p-5 z-10 flex flex-col justify-between">
+    <div
+      class="w-full relative left-50 lg:sticky lg:top-0 lg:h-screen lg:w-1/2 lg:p-10 md:p-10 p-5 z-10 flex flex-col justify-between">
       <header class="lg:space-y-4 space-y-2 lg:mt-20">
-        <h1 class="lg:text-5xl text-3xl font-bold">Josh Wolfe</h1>
-        <h2 class="lg:text-2xl text-xl text-gray-300">
-          Low-Level Software Engineer
-        </h2>
+        <h1 class="lg:text-2xl text-3xl font-bold">Links</h1>
         <a href="https://wilkes.edu" target="_blank" rel="noopener noreferrer"
           class="lg:text-xl text-xl text-sky-300 hover:text-white transform transition-all duration-300 hover:text-2xl">Wilkes
           University</a>
+        <div class="flex pt-4 space-x-4">
+          <a href="https://github.com/jpwol" target="_blank" rel="noopener">
+            <img src="../assets/github.svg" alt="Github"
+              class="w-6 h-6 mt-1 transition-transform transform hover:scale-125" />
+          </a>
+          <a href="https://www.linkedin.com/in/joshua-wolfe-596197359/" target="_blank" rel="noopener">
+            <img src="../assets/linkedin.svg" alt="LinkedIn"
+              class="w-8 h-8 invert transition-transform transform hover:scale-125" />
+          </a>
+          <a href="https://www.instagram.com/wolfe_man_/" target="_blank" rel="noopener">
+            <img src="../assets/instagram.svg" alt="Github"
+              class="w-8 h-8 invert transition-transform transform hover:scale-125" />
+          </a>
+        </div>
       </header>
-      <div class="flex space-x-4 lg:mb-20 pt-10">
-        <a href="https://github.com/jpwol" target="_blank" rel="noopener">
-          <img src="../assets/github.svg" alt="Github"
-            class="w-6 h-6 mt-1 transition-transform transform hover:scale-125" />
-        </a>
-        <a href="https://www.linkedin.com/in/joshua-wolfe-596197359/" target="_blank" rel="noopener">
-          <img src="../assets/linkedin.svg" alt="LinkedIn"
-            class="w-8 h-8 invert transition-transform transform hover:scale-125" />
-        </a>
-        <a href="https://www.instagram.com/wolfe_man_/" target="_blank" rel="noopener">
-          <img src="../assets/instagram.svg" alt="Github"
-            class="w-8 h-8 invert transition-transform transform hover:scale-125" />
-        </a>
-      </div>
     </div>
 
-    <div class="lg:ml-[50%] lg:p-10 md:pl-10 md:pr-10 pl-5 pr-5">
+    <div class=" lg:p-10 md:pl-10 md:pr-10 pl-5 pr-5">
       <section class="lg:max-w-xl space-y-6 lg:pt-14 pb-6 text-gray-300">
         <h1 class="text-2xl text-white font-bold pt-6 pb-2">About Me</h1>
         <p>
@@ -108,7 +119,124 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+
+const canvas = ref(null)
+const isMobile = ref(false)
+
+let ctx
+let particles = []
+let mouse = { x: null, y: null }
+const numParticles = 100
+const maxDistance = 120
+
+class Particle {
+  constructor(x, y) {
+    this.x = x
+    this.y = y
+    this.vx = (Math.random() - 0.5) * 0.8
+    this.vy = (Math.random() - 0.5) * 0.8
+    this.radius = 2
+  }
+  update() {
+    this.x += this.vx
+    this.y += this.vy
+
+    if (this.x < 0 || this.x > canvas.value.width) this.vx *= -1
+    if (this.y < 0 || this.y > canvas.value.height) this.vy *= -1
+  }
+  draw() {
+    ctx.beginPath()
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
+    ctx.fillStyle = 'white'
+    ctx.fill()
+  }
+}
+
+function connectParticles() {
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i + 1; j < particles.length; j++) {
+      let dx = particles[i].x - particles[j].x
+      let dy = particles[i].y - particles[j].y
+      let dist = Math.sqrt(dx * dx + dy * dy)
+
+      if (dist < maxDistance) {
+        ctx.strokeStyle = `rgba(255, 255, 255, ${(1 - dist / maxDistance) * 0.5})`
+        ctx.lineWidth = 1
+        ctx.beginPath()
+        ctx.moveTo(particles[i].x, particles[i].y)
+        ctx.lineTo(particles[j].x, particles[j].y)
+        ctx.stroke()
+      }
+    }
+
+    if (mouse.x !== null) {
+      let dx = particles[i].x - mouse.x
+      let dy = particles[i].y - mouse.y
+      let dist = Math.sqrt(dx * dx + dy * dy)
+
+      if (dist < maxDistance) {
+        ctx.strokeStyle = `rgba(255, 255, 255, ${(1 - dist / maxDistance) * 0.8})`
+        ctx.lineWidth = 1
+        ctx.beginPath()
+        ctx.moveTo(particles[i].x, particles[i].y)
+        ctx.lineTo(mouse.x, mouse.y)
+        ctx.stroke()
+      }
+    }
+  }
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.value.width, canvas.value.height)
+  ctx.fillStyle = 'white'
+
+  particles.forEach(p => {
+    p.update()
+    p.draw()
+  })
+
+  connectParticles()
+  requestAnimationFrame(animate)
+}
+
+function resizeCanvas() {
+  canvas.value.width = canvas.value.offsetWidth
+  canvas.value.height = canvas.value.offsetHeight
+}
+
+onMounted(() => {
+  isMobile.value = window.innerWidth < 768
+
+  ctx = canvas.value.getContext('2d')
+
+  resizeCanvas()
+  window.addEventListener('resize', resizeCanvas)
+
+  for (let i = 0; i < numParticles; i++) {
+    particles.push(new Particle(Math.random() * canvas.value.width, Math.random() * canvas.value.height))
+  }
+
+  window.addEventListener('mousemove', e => {
+    mouse.x = e.clientX
+    mouse.y = e.clientY
+  })
+
+  window.addEventListener('mouseout', () => {
+    mouse.x = null
+    mouse.y = null
+  })
+
+  animate()
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', resizeCanvas)
+  window.removeEventListener('mousemove', null)
+  window.removeEventListener('mouseout', null)
+})
+</script>
 
 <style scoped>
 @keyframes fadeInLeft {
