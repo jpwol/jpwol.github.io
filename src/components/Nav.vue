@@ -5,6 +5,8 @@
     <div class="flex space-x-6">
       <router-link to="/" class="hover:underline">Home</router-link>
       <router-link to="/projects" class="hover:underline">Projects</router-link>
+      <router-link to="/blog" class="hover:underline">Blog</router-link>
+      <router-link to="/contact" class="hover:underline">Contacts</router-link>
     </div>
   </nav>
 </template>

@@ -5,27 +5,31 @@
 
     <div class="relative z-10 flex flex-col items-center justify-center h-full text-white">
       <h1 class="text-4xl font-bold">Josh Wolfe</h1>
-      <p class="mt-4 text-lg opacity-80">Low-Level Software Engineer</p>
+      <h2 class="font-bold mt-4 text-lg opacity-80">Low-Level Software Engineer</h2>
+      <p class="mt-4 text-md opacity-80">Student at Wilkes University</p>
     </div>
   </section>
 
   <!-- TODO: mobile hero here -->
-  <section v-else>
+  <section v-else class="text-white  flex flex-col top-0 left-0 mt-4 ml-4 space-y-2">
+    <h1 class="text-white text-3xl font-bold">Josh Wolfe</h1>
+    <h2 class="text-gray-300 text-xl">Low-Level Software Engineer</h2>
+    <h2 class="text-gray-300 text-md opacity-80">Student at Wilkes University</h2>
   </section>
 
   <!-- left side content -->
   <div class="relative text-white lg:flex">
-    <div
-      class="w-full left-50 lg:sticky lg:top-0 lg:h-screen lg:w-1/2 lg:p-10 md:p-10 p-5 z-10 flex flex-col justify-between">
-      <header class="lg:space-y-4 space-y-2 lg:mt-20">
-        <h1 class="lg:text-2xl text-3xl font-bold">Quick Access</h1>
-        <div class="text-xl flex flex-col space-y-4">
-          <router-link to="/projects"
-            class=" hover:text-blue-200 transition transition-all duration-300 hover:text-2xl ">Projects</router-link>
+    <div class="left-50 lg:sticky lg:top-0 lg:h-screen lg:w-1/2 lg:p-10 md:p-10 p-5 z-10 flex flex-col justify-between">
+      <div class="lg:space-y-4 space-y-2 lg:mt-20 lg:max-w-1/4">
+        <h1 class="lg:text-2xl text-xl font-bold">Quick Access</h1>
+        <div class="lg:text-md font-bold text-md flex flex-col space-y-4 opacity-80">
+          <router-link to="/projects" class="hover:text-blue-200 transition transition-all duration-300 hover:text-xl">
+            PROJECTS
+          </router-link>
           <router-link to="/blog"
-            class=" hover:text-blue-200 transition transition-all duration-300 hover:text-2xl ">Blog</router-link>
+            class=" hover:text-blue-200 transition transition-all duration-300 hover:text-xl ">BLOG</router-link>
           <router-link to="/contact"
-            class=" hover:text-blue-200 transition transition-all duration-300 hover:text-2xl ">Contact</router-link>
+            class=" hover:text-blue-200 transition transition-all duration-300 hover:text-xl ">CONTACT</router-link>
         </div>
 
         <div class="flex pt-2 space-x-4">
@@ -46,46 +50,43 @@
               class="w-8 h-8 invert transition-transform transform hover:scale-125" />
           </a>
         </div>
-      </header>
+        <div v-if="!isMobile" class="lg:space-y-4 space-y-2 lg:mt-20">
+          <h1 class="lg:text-2xl text-xl font-bold">Featured Projects</h1>
+          <p>:(</p>
+        </div>
+      </div>
     </div>
 
-    <div class=" lg:p-10 md:pl-10 md:pr-10 pl-5 pr-5">
-      <section class="lg:max-w-xl space-y-6 lg:pt-14 pb-6 text-gray-300">
-        <h1 class="text-2xl text-white font-bold pt-6 pb-2">About Me</h1>
-        <p>
+    <div class=" lg:p-10 md:pl-10 md:pr-10 pl-5 pr-5 z-9999">
+      <section class="lg:max-w-xl space-y-2 lg:pt-14 pb-6 text-gray-300">
+        <h1 class="text-xl text-white font-bold pt-6 pb-2">ABOUT</h1>
+        <p class="mb-4">
           Hi, I’m Josh Wolfe, a former fine-finish carpenter turned low-level
           software engineer.
         </p>
 
-        <p>
-          I spent nearly a decade in the trades, building everything from custom
-          cabinetry to full-scale residential projects. For several years, I ran
-          my own woodworking business, and later I worked as a foreman for a
-          solar installation company. But what started as a side hobby, learning
-          C and C++ at night, slowly became a passion I couldn’t ignore.
+        <p class="my-4">
+          I spent nearly a decade in the trades, building everything from custom cabinetry to full-scale residential
+          projects.
+          I took on programming as a hobby, starting with C and C++ making simple games and CLI tools.
         </p>
 
-        <p>
+        <p class="my-4">
           I would spend hours after work pouring through textbooks I found
           online and writing programs. This went from being an occasional
           interest to an every-night obsession.
         </p>
 
-        <p>
+        <p class="my-4">
           Eventually, I made a full pivot into tech. I taught myself Linux, dove
           into systems programming, and found a home in the world of low-level
           software. In 2023, I returned to school to pursue a degree in Computer
-          Science, and now I contribute to research projects with my university.
+          Science, and now I contribute to research projects with my <a class="text-blue-200 font-bold"
+            href="www.wilkes.edu" target="_blank" rel="noopener">university</a>
         </p>
 
-        <p>
-          I bring a builder’s mindset to programming: attention to detail, pride
-          in craftsmanship, and a love of creating things that are both elegant
-          and functional.
-        </p>
-
-        <p>
-          I'm still writing code every day. I love to experiment and learn, and
+        <p class="my-4">
+          I write code almost every day. I love to experiment and learn, and
           as a consequence, I'm fluent in C, C++, Zig, Go, Java, Python, as well
           as Bash scripting. You'll find some of my work on the Projects page
           which shares it's content with my Github. These are projects that
@@ -93,7 +94,7 @@
         </p>
       </section>
 
-      <hr class="max-w-xl my-6 border-t border-gray-600" />
+      <hr class="max-w-xl my-2 border-t border-gray-600" />
 
       <section class="max-w-xl space-y-6">
         <h1 class="text-2xl font-bold pt-6 pb-2">History</h1>
