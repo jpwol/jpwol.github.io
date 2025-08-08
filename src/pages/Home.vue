@@ -1,6 +1,6 @@
 <template>
   <!-- desktop hero -->
-  <section class="relative w-full h-[400px] bg-black overflow-hidden border-4 border-b-blue-200" v-if"!isMobile">
+  <section v-if="!isMobile" class="relative w-full h-[400px] bg-black overflow-hidden border-4 border-b-blue-200">
     <canvas ref="canvas" class="absolute top-0 left-0 w-full h-full"></canvas>
 
     <div class="relative z-10 flex flex-col items-center justify-center h-full text-white">
@@ -10,17 +10,29 @@
   </section>
 
   <!-- TODO: mobile hero here -->
+  <section v-else>
+  </section>
 
   <!-- left side content -->
   <div class="relative text-white lg:flex">
     <div
-      class="w-full relative left-50 lg:sticky lg:top-0 lg:h-screen lg:w-1/2 lg:p-10 md:p-10 p-5 z-10 flex flex-col justify-between">
+      class="w-full left-50 lg:sticky lg:top-0 lg:h-screen lg:w-1/2 lg:p-10 md:p-10 p-5 z-10 flex flex-col justify-between">
       <header class="lg:space-y-4 space-y-2 lg:mt-20">
-        <h1 class="lg:text-2xl text-3xl font-bold">Links</h1>
-        <a href="https://wilkes.edu" target="_blank" rel="noopener noreferrer"
-          class="lg:text-xl text-xl text-sky-300 hover:text-white transform transition-all duration-300 hover:text-2xl">Wilkes
-          University</a>
-        <div class="flex pt-4 space-x-4">
+        <h1 class="lg:text-2xl text-3xl font-bold">Quick Access</h1>
+        <div class="text-xl flex flex-col space-y-4">
+          <router-link to="/projects"
+            class=" hover:text-blue-200 transition transition-all duration-300 hover:text-2xl ">Projects</router-link>
+          <router-link to="/blog"
+            class=" hover:text-blue-200 transition transition-all duration-300 hover:text-2xl ">Blog</router-link>
+          <router-link to="/contact"
+            class=" hover:text-blue-200 transition transition-all duration-300 hover:text-2xl ">Contact</router-link>
+        </div>
+
+        <div class="flex pt-2 space-x-4">
+          <a href="https://wilkes.edu" target="_blank" rel="noopener">
+            <img src="../assets/wilkes_logo.svg" alt="Github"
+              class="w-8 h-8 transition-transform transform hover:scale-125" />
+          </a>
           <a href="https://github.com/jpwol" target="_blank" rel="noopener">
             <img src="../assets/github.svg" alt="Github"
               class="w-6 h-6 mt-1 transition-transform transform hover:scale-125" />
