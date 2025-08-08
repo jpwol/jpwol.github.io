@@ -3,7 +3,6 @@ import Home from "./pages/Home.vue";
 import Projects from "./pages/Projects.vue";
 import Blog from "./pages/Blog.vue";
 import Contact from "./pages/Contact.vue";
-import Temp from "./pages/Temp.vue";
 
 const routes = [
   {
@@ -29,12 +28,6 @@ const routes = [
     name: "Contact",
     component: Contact,
     meta: { title: "Contact" },
-  },
-  {
-    path: "/secret",
-    name: "For You",
-    component: Temp,
-    meta: { title: "For You" },
   },
 ];
 
