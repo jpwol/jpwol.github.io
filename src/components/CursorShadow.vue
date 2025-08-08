@@ -5,27 +5,24 @@
   }"></div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      mouseX: 0,
-      mouseY: 0,
-    };
-  },
-  methods: {
-    handleMouseMove(e) {
-      this.mouseX = e.clientX;
-      this.mouseY = e.clientY;
-    },
-  },
-  mounted() {
-    window.addEventListener("mousemove", this.handleMouseMove);
-  },
-  beforeUnmount() {
-    window.removeEventListener("mousemove", this.handleMouseMove);
-  },
-};
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+
+const mouseX = ref(0)
+const mouseY = ref(0)
+
+function handleMouseMove(e) {
+  mouseX.value = e.clientX;
+  mouseY.value = e.clientY;
+}
+onMounted(() => {
+  window.addEventListener("mousemove", handleMouseMove);
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener("mousemove", handleMouseMove);
+})
+
 </script>
 
 <style scoped>
