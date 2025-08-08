@@ -1,21 +1,21 @@
 <template>
-  <div class="p-10 text-white text-center space-y-6">
-    <transition name="fade-slide">
-      <h1 v-if="showHello" class="text-5xl font-bold">still miss you</h1>
-    </transition>
-
-    <transition name="fade">
-      <button v-if="showPrompt" @click="handleContinue" class="text-xl text-sky-300 hover:text-white transition">
-        Click to Continue
-      </button>
-    </transition>
-
-    <transition name="fade-slide">
-      <div v-if="showNext" class="space-y-4">
-        <h2 class="text-3xl text-gray-300">skinamawho?</h2>
-      </div>
-    </transition>
-  </div>
+  <!-- <div class="p-10 text-white text-center space-y-6"> -->
+  <!--   <transition name="fade-slide"> -->
+  <!--     <h1 v-if="showHello" class="text-5xl font-bold">still miss you</h1> -->
+  <!--   </transition> -->
+  <!---->
+  <!--   <transition name="fade"> -->
+  <!--     <button v-if="showPrompt" @click="handleContinue" class="text-xl text-sky-300 hover:text-white transition"> -->
+  <!--       Click to Continue -->
+  <!--     </button> -->
+  <!--   </transition> -->
+  <!---->
+  <!--   <transition name="fade-slide"> -->
+  <!--     <div v-if="showNext" class="space-y-4"> -->
+  <!--       <h2 class="text-3xl text-gray-300">skinamawho?</h2> -->
+  <!--     </div> -->
+  <!--   </transition> -->
+  <!-- </div> -->
 </template>
 
 <script setup>
