@@ -209,26 +209,28 @@ function resizeCanvas() {
 onMounted(() => {
   isMobile.value = window.innerWidth < 768
 
-  ctx = canvas.value.getContext('2d')
+  if (!isMobile.value) {
+    ctx = canvas.value.getContext('2d')
 
-  resizeCanvas()
-  window.addEventListener('resize', resizeCanvas)
+    resizeCanvas()
+    window.addEventListener('resize', resizeCanvas)
 
-  for (let i = 0; i < numParticles; i++) {
-    particles.push(new Particle(Math.random() * canvas.value.width, Math.random() * canvas.value.height))
+    for (let i = 0; i < numParticles; i++) {
+      particles.push(new Particle(Math.random() * canvas.value.width, Math.random() * canvas.value.height))
+    }
+
+    window.addEventListener('mousemove', e => {
+      mouse.x = e.clientX
+      mouse.y = e.clientY
+    })
+
+    window.addEventListener('mouseout', () => {
+      mouse.x = null
+      mouse.y = null
+    })
+
+    animate()
   }
-
-  window.addEventListener('mousemove', e => {
-    mouse.x = e.clientX
-    mouse.y = e.clientY
-  })
-
-  window.addEventListener('mouseout', () => {
-    mouse.x = null
-    mouse.y = null
-  })
-
-  animate()
 })
 
 onBeforeUnmount(() => {
