@@ -82,7 +82,7 @@
           into systems programming, and found a home in the world of low-level
           software. In 2023, I returned to school to pursue a degree in Computer
           Science, and now I contribute to research projects with my <a class="text-blue-200 font-bold"
-            href="www.wilkes.edu" target="_blank" rel="noopener">university</a>
+            href="https://wilkes.edu" target="_blank" rel="noopener">university</a>
         </p>
 
         <p class="my-4">
