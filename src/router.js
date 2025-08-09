@@ -30,12 +30,12 @@ const routes = [
     component: Contact,
     meta: { title: "Contact" },
   },
-  {
-    path: "/secret",
-    name: "Man",
-    component: Temp,
-    meta: { title: "Man" },
-  },
+  // {
+  //   path: "/secret",
+  //   name: "Man",
+  //   component: Temp,
+  //   meta: { title: "Man" },
+  // },
 ];
 
 const router = createRouter({
