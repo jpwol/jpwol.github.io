@@ -7,11 +7,11 @@
 </template>
 
 <script setup>
-import Nav from './components/Nav.vue'
-import CursorShadow from './components/CursorShadow.vue'
-import { useRoute } from 'vue-router';
-import { computed } from 'vue';
+import Nav from "./components/Nav.vue";
+import CursorShadow from "./components/CursorShadow.vue";
+import { useRoute } from "vue-router";
+import { computed } from "vue";
 
-const route = useRoute()
-const showNavbar = computed(() => route.path != '/')
+const route = useRoute();
+const showNavbar = computed(() => route.path != "/");
 </script>
