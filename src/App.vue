@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CursorShadow />
+    <!-- <CursorShadow /> -->
     <Nav v-if="showNavbar" />
     <router-view />
   </div>
@@ -8,7 +8,7 @@
 
 <script setup>
 import Nav from "./components/Nav.vue";
-import CursorShadow from "./components/CursorShadow.vue";
+// import CursorShadow from "./components/CursorShadow.vue";
 import { useRoute } from "vue-router";
 import { computed } from "vue";
 
