@@ -1,74 +1,132 @@
 <template>
   <!-- desktop hero -->
-  <section v-if="!isMobile" class="relative w-full h-[400px] bg-black overflow-hidden border-4 border-b-blue-200">
+  <section
+    v-if="!isMobile"
+    class="relative w-full h-[400px] bg-bg-dark overflow-hidden border-4 border-b-border"
+  >
     <canvas ref="canvas" class="absolute top-0 left-0 w-full h-full"></canvas>
 
-    <div class="relative z-10 flex flex-col items-center justify-center h-full text-white">
+    <div
+      class="relative z-10 flex flex-col items-center justify-center h-full text-fg"
+    >
       <h1 class="text-4xl font-bold">Josh Wolfe</h1>
-      <h2 class="font-bold mt-4 text-lg opacity-80">Low-Level Software Engineer</h2>
+      <h2 class="font-bold mt-4 text-lg opacity-80">
+        Low-Level Software Engineer
+      </h2>
       <p class="mt-4 text-md opacity-80">Student at Wilkes University</p>
     </div>
   </section>
 
   <!-- TODO: mobile hero here -->
-  <section v-else class="text-white  flex flex-col top-0 left-0 mt-4 ml-4 space-y-2">
-    <h1 class="text-white text-3xl font-bold">Josh Wolfe</h1>
+  <section
+    v-else
+    class="text-fg flex flex-col top-0 left-0 mt-4 ml-4 space-y-2"
+  >
+    <h1 class="text-fg text-3xl font-bold">Josh Wolfe</h1>
     <h2 class="text-gray-300 text-xl">Low-Level Software Engineer</h2>
-    <h2 class="text-gray-300 text-md opacity-80">Student at Wilkes University</h2>
+    <h2 class="text-gray-300 text-md opacity-80">
+      Student at Wilkes University
+    </h2>
   </section>
 
   <!-- left side content -->
-  <div class="relative text-white lg:flex">
-    <div class="left-50 lg:sticky lg:top-0 lg:h-screen lg:w-1/2 lg:p-10 md:p-10 p-5 z-10 flex flex-col justify-between">
+  <div class="relative text-fg lg:flex">
+    <div
+      class="left-50 lg:sticky lg:top-0 lg:h-screen lg:w-1/2 lg:p-10 md:p-10 p-5 z-10 flex flex-col justify-between"
+    >
       <div class="lg:space-y-4 space-y-2 lg:mt-20 lg:max-w-1/4">
-        <h1 class="lg:text-2xl text-xl font-bold">Quick Access</h1>
-        <div class="lg:text-md font-bold text-md flex flex-col space-y-4 opacity-80">
-          <router-link to="/projects" class="hover:text-blue-200 transition transition-all duration-300 hover:text-xl">
+        <h1 class="lg:text-2xl text-xl font-bold text-t-cyan">Quick Access</h1>
+        <div
+          class="lg:text-md font-bold text-md flex flex-col space-y-4 opacity-80 text-fg"
+        >
+          <router-link
+            to="/projects"
+            class="hover:text-t-lightgreen transition transition-all duration-100 hover:text-xl"
+          >
             PROJECTS
           </router-link>
-          <router-link to="/blog"
-            class=" hover:text-blue-200 transition transition-all duration-300 hover:text-xl ">BLOG</router-link>
-          <router-link to="/contact"
-            class=" hover:text-blue-200 transition transition-all duration-300 hover:text-xl ">CONTACT</router-link>
+          <router-link
+            to="/blog"
+            class="hover:text-t-lightgreen transition transition-all duration-100 hover:text-xl"
+            >BLOG</router-link
+          >
+          <router-link
+            to="/contact"
+            class="hover:text-t-lightgreen transition transition-all duration-100 hover:text-xl"
+            >CONTACT</router-link
+          >
         </div>
 
         <div class="flex pt-2 space-x-4">
           <a href="https://wilkes.edu" target="_blank" rel="noopener">
-            <img src="../assets/wilkes_logo.svg" alt="Github"
-              class="w-8 h-8 transition-transform transform hover:scale-125" />
+            <img
+              src="../assets/wilkes_logo.svg"
+              alt="Github"
+              class="w-8 h-8 transition-transform transform hover:scale-125"
+            />
           </a>
           <a href="https://github.com/jpwol" target="_blank" rel="noopener">
-            <img src="../assets/github.svg" alt="Github"
-              class="w-6 h-6 mt-1 transition-transform transform hover:scale-125" />
+            <img
+              src="../assets/github.svg"
+              alt="Github"
+              class="w-6 h-6 mt-1 transition-transform transform hover:scale-125"
+            />
           </a>
-          <a href="https://www.linkedin.com/in/joshua-wolfe-596197359/" target="_blank" rel="noopener">
-            <img src="../assets/linkedin.svg" alt="LinkedIn"
-              class="w-8 h-8 invert transition-transform transform hover:scale-125" />
+          <a
+            href="https://www.linkedin.com/in/joshua-wolfe-596197359/"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              src="../assets/linkedin.svg"
+              alt="LinkedIn"
+              class="w-8 h-8 invert transition-transform transform hover:scale-125"
+            />
           </a>
-          <a href="https://www.instagram.com/wolfe_man_/" target="_blank" rel="noopener">
-            <img src="../assets/instagram.svg" alt="Github"
-              class="w-8 h-8 invert transition-transform transform hover:scale-125" />
+          <a
+            href="https://www.instagram.com/wolfe_man_/"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              src="../assets/instagram.svg"
+              alt="Github"
+              class="w-8 h-8 invert transition-transform transform hover:scale-125"
+            />
           </a>
         </div>
         <div v-if="!isMobile" class="lg:space-y-4 space-y-2 lg:mt-20">
-          <h1 class="lg:text-2xl text-xl font-bold">Featured Projects</h1>
-          <p>:(</p>
+          <h1 class="lg:text-2xl text-xl font-bold text-t-cyan">
+            Featured Projects
+          </h1>
+          <div class="flex flex-col text-fg font-bold space-y-2">
+            <router-link
+              :to="`/projects/thorn`"
+              class="transition transition-all duration-100 hover:text-xl hover:text-t-lightgreen"
+              >thorn.nvim</router-link
+            >
+            <router-link
+              :to="`/projects/bitwisecli`"
+              class="transition transition-all duration-100 hover:text-lg hover:text-t-lightgreen"
+              >bitwise-cli</router-link
+            >
+          </div>
         </div>
       </div>
     </div>
 
-    <div class=" lg:p-10 md:pl-10 md:pr-10 pl-5 pr-5 z-9999">
-      <section class="lg:max-w-xl space-y-2 lg:pt-14 pb-6 text-gray-300">
-        <h1 class="text-xl text-white font-bold pt-6 pb-2">ABOUT</h1>
+    <div class="lg:p-10 md:pl-10 md:pr-10 pl-5 pr-5 z-9999">
+      <section class="text-red lg:max-w-xl space-y-2 lg:pt-14 pb-6 text-fg">
+        <h1 class="text-t-cyan text-xl text-fg font-bold pt-6 pb-2">ABOUT</h1>
         <p class="mb-4">
           Hi, I’m Josh Wolfe, a former fine-finish carpenter turned low-level
           software engineer.
         </p>
 
         <p class="my-4">
-          I spent nearly a decade in the trades, building everything from custom cabinetry to full-scale residential
-          projects.
-          I took on programming as a hobby, starting with C and C++ making simple games and CLI tools.
+          I spent nearly a decade in the trades, building everything from custom
+          cabinetry to full-scale residential projects. I took on programming as
+          a hobby, starting with C and C++ making simple games and CLI tools.
         </p>
 
         <p class="my-4">
@@ -81,16 +139,22 @@
           Eventually, I made a full pivot into tech. I taught myself Linux, dove
           into systems programming, and found a home in the world of low-level
           software. In 2023, I returned to school to pursue a degree in Computer
-          Science, and now I contribute to research projects with my <a class="text-blue-200 font-bold"
-            href="https://wilkes.edu" target="_blank" rel="noopener">university</a>
+          Science, and now I contribute to research projects with my
+          <a
+            class="text-t-lightgreen font-bold"
+            href="https://wilkes.edu"
+            target="_blank"
+            rel="noopener"
+            >university</a
+          >
         </p>
 
         <p class="my-4">
-          I write code almost every day. I love to experiment and learn, and
-          as a consequence, I'm fluent in C, C++, Zig, Go, Java, Python, as well
-          as Bash scripting. You'll find some of my work on the Projects page
-          which shares it's content with my Github. These are projects that
-          range from 2018 to present, and will keep growing.
+          I write code almost every day. I love to experiment and learn, and as
+          a consequence, I'm fluent in C, C++, Zig, Go, Java, Python, as well as
+          Bash scripting. You'll find some of my work on the Projects page which
+          shares it's content with my Github. These are projects that range from
+          2018 to present, and will keep growing.
         </p>
       </section>
 
@@ -133,124 +197,129 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from "vue";
 
-const canvas = ref(null)
-const isMobile = ref(false)
+const canvas = ref(null);
+const isMobile = ref(false);
 
-let ctx
-let particles = []
-let mouse = { x: null, y: null }
-const numParticles = 100
-const maxDistance = 120
+let ctx;
+let particles = [];
+let mouse = { x: null, y: null };
+const numParticles = 100;
+const maxDistance = 120;
 
 class Particle {
   constructor(x, y) {
-    this.x = x
-    this.y = y
-    this.vx = (Math.random() - 0.5) * 0.8
-    this.vy = (Math.random() - 0.5) * 0.8
-    this.radius = 2
+    this.x = x;
+    this.y = y;
+    this.vx = (Math.random() - 0.5) * 0.8;
+    this.vy = (Math.random() - 0.5) * 0.8;
+    this.radius = 2;
   }
   update() {
-    this.x += this.vx
-    this.y += this.vy
+    this.x += this.vx;
+    this.y += this.vy;
 
-    if (this.x < 0 || this.x > canvas.value.width) this.vx *= -1
-    if (this.y < 0 || this.y > canvas.value.height) this.vy *= -1
+    if (this.x < 0 || this.x > canvas.value.width) this.vx *= -1;
+    if (this.y < 0 || this.y > canvas.value.height) this.vy *= -1;
   }
   draw() {
-    ctx.beginPath()
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
-    ctx.fillStyle = 'white'
-    ctx.fill()
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = "#79C2B6";
+    ctx.fill();
   }
 }
 
 function connectParticles() {
   for (let i = 0; i < particles.length; i++) {
     for (let j = i + 1; j < particles.length; j++) {
-      let dx = particles[i].x - particles[j].x
-      let dy = particles[i].y - particles[j].y
-      let dist = Math.sqrt(dx * dx + dy * dy)
+      let dx = particles[i].x - particles[j].x;
+      let dy = particles[i].y - particles[j].y;
+      let dist = Math.sqrt(dx * dx + dy * dy);
 
       if (dist < maxDistance) {
-        ctx.strokeStyle = `rgba(255, 255, 255, ${(1 - dist / maxDistance) * 0.5})`
-        ctx.lineWidth = 1
-        ctx.beginPath()
-        ctx.moveTo(particles[i].x, particles[i].y)
-        ctx.lineTo(particles[j].x, particles[j].y)
-        ctx.stroke()
+        ctx.strokeStyle = `rgba(135, 203, 177, ${(1 - dist / maxDistance) * 0.5})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.stroke();
       }
     }
 
     if (mouse.x !== null) {
-      let dx = particles[i].x - mouse.x
-      let dy = particles[i].y - mouse.y
-      let dist = Math.sqrt(dx * dx + dy * dy)
+      let dx = particles[i].x - mouse.x;
+      let dy = particles[i].y - mouse.y;
+      let dist = Math.sqrt(dx * dx + dy * dy);
 
       if (dist < maxDistance) {
-        ctx.strokeStyle = `rgba(255, 255, 255, ${(1 - dist / maxDistance) * 0.8})`
-        ctx.lineWidth = 1
-        ctx.beginPath()
-        ctx.moveTo(particles[i].x, particles[i].y)
-        ctx.lineTo(mouse.x, mouse.y)
-        ctx.stroke()
+        ctx.strokeStyle = `rgba(135, 203, 177, ${(1 - dist / maxDistance) * 0.8})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.stroke();
       }
     }
   }
 }
 
 function animate() {
-  ctx.clearRect(0, 0, canvas.value.width, canvas.value.height)
-  ctx.fillStyle = 'white'
+  ctx.clearRect(0, 0, canvas.value.width, canvas.value.height);
+  ctx.fillStyle = "white";
 
-  particles.forEach(p => {
-    p.update()
-    p.draw()
-  })
+  particles.forEach((p) => {
+    p.update();
+    p.draw();
+  });
 
-  connectParticles()
-  requestAnimationFrame(animate)
+  connectParticles();
+  requestAnimationFrame(animate);
 }
 
 function resizeCanvas() {
-  canvas.value.width = canvas.value.offsetWidth
-  canvas.value.height = canvas.value.offsetHeight
+  canvas.value.width = canvas.value.offsetWidth;
+  canvas.value.height = canvas.value.offsetHeight;
 }
 
 onMounted(() => {
-  isMobile.value = window.innerWidth < 768
+  isMobile.value = window.innerWidth < 768;
 
   if (!isMobile.value) {
-    ctx = canvas.value.getContext('2d')
+    ctx = canvas.value.getContext("2d");
 
-    resizeCanvas()
-    window.addEventListener('resize', resizeCanvas)
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
     for (let i = 0; i < numParticles; i++) {
-      particles.push(new Particle(Math.random() * canvas.value.width, Math.random() * canvas.value.height))
+      particles.push(
+        new Particle(
+          Math.random() * canvas.value.width,
+          Math.random() * canvas.value.height,
+        ),
+      );
     }
 
-    window.addEventListener('mousemove', e => {
-      mouse.x = e.clientX
-      mouse.y = e.clientY
-    })
+    window.addEventListener("mousemove", (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
 
-    window.addEventListener('mouseout', () => {
-      mouse.x = null
-      mouse.y = null
-    })
+    window.addEventListener("mouseout", () => {
+      mouse.x = null;
+      mouse.y = null;
+    });
 
-    animate()
+    animate();
   }
-})
+});
 
 onBeforeUnmount(() => {
-  window.removeEventListener('resize', resizeCanvas)
-  window.removeEventListener('mousemove', null)
-  window.removeEventListener('mouseout', null)
-})
+  window.removeEventListener("resize", resizeCanvas);
+  window.removeEventListener("mousemove", null);
+  window.removeEventListener("mouseout", null);
+});
 </script>
 
 <style scoped>

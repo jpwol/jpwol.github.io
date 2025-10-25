@@ -4,6 +4,8 @@ import Projects from "./pages/Projects.vue";
 import Blog from "./pages/Blog.vue";
 import Contact from "./pages/Contact.vue";
 
+import projects from "./projects.js";
+
 const routes = [
   {
     path: "/",
@@ -29,6 +31,12 @@ const routes = [
     component: Contact,
     meta: { title: "Contact" },
   },
+  ...projects.map((proj) => ({
+    path: `/projects/${proj.slug}`,
+    name: proj.name,
+    component: proj.component,
+    meta: { title: proj.name },
+  })),
 ];
 
 const router = createRouter({
