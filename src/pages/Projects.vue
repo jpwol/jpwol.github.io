@@ -1,8 +1,12 @@
 <template>
   <div
-    class="relative top-20 left-[50%] w-full flex flex-col items-start space-y-4 space-x-10 text-white"
+    class="relative lg:top-20 lg:left-[50%] flex flex-col space-y-4 space-x-10 text-white"
   >
-    <div v-for="project in projects" :key="project.slug" class="project-link">
+    <div
+      v-for="project in projects"
+      :key="project.slug"
+      class="project-link lg:w-[45%] mx-2"
+    >
       <router-link :to="`/projects/${project.slug}`">
         <div class="flex flex-row space-x-3">
           <img
@@ -28,7 +32,6 @@ import projects from "../projects.js";
 <style scoped>
 .project-link {
   display: block;
-  width: 45%;
   padding: 1rem;
   border: 3px solid var(--color-border);
   background-color: var(--color-bg-dark);
