@@ -1,25 +1,31 @@
 <template>
-  <div
-    class="relative lg:top-20 lg:left-[50%] flex flex-col space-y-4 space-x-10 text-white"
-  >
-    <div
-      v-for="project in projects"
-      :key="project.slug"
-      class="project-link lg:w-[45%] mx-2"
+  <div class="relative lg:top-20 lg:left-[50%] flex flex-col text-white">
+    <transition-group
+      name="project"
+      tag="div"
+      appear
+      class="space-y-4 lg:w-[45%] mx-2"
     >
-      <router-link :to="`/projects/${project.slug}`">
-        <div class="flex flex-row space-x-3">
-          <img
-            v-if="project.icon"
-            :src="project.icon"
-            alt=""
-            class="relative top-1 w-6 h-6"
-          />
-          <h2 class="relative top-1">[ {{ project.name }} ]</h2>
-        </div>
-        <p>{{ project.description }}</p>
-      </router-link>
-    </div>
+      <div
+        v-for="(project, i) in projects"
+        :key="project.slug"
+        class="project-link"
+        :style="{ transitionDelay: `${i * 50}ms` }"
+      >
+        <router-link :to="`/projects/${project.slug}`">
+          <div class="flex flex-row space-x-3">
+            <img
+              v-if="project.icon"
+              :src="project.icon"
+              alt=""
+              class="relative top-1 w-6 h-6"
+            />
+            <h2 class="relative top-1">[ {{ project.name }} ]</h2>
+          </div>
+          <p>{{ project.description }}</p>
+        </router-link>
+      </div>
+    </transition-group>
   </div>
 
   <router-view />
@@ -33,7 +39,7 @@ import projects from "../projects.js";
 .project-link {
   display: block;
   padding: 1rem;
-  border: 3px solid var(--color-border);
+  border: 3px solid var(--color-bg-dark);
   background-color: var(--color-bg-dark);
   color: var(--color-fg);
   transition:
@@ -47,8 +53,22 @@ import projects from "../projects.js";
 }
 
 .project-link:hover {
-  /* background-color: var(--color-border); */
-  border-color: var(--color-t-lightgreen);
+  border-color: var(--color-border);
   transform: translateX(-2px);
+}
+
+.project-enter-active,
+.project-leave-active {
+  transition: all 0.5s ease;
+}
+
+.project-enter-from {
+  opacity: 1;
+  transform: translateX(400px);
+}
+
+.project-enter-to {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>
