@@ -34,8 +34,8 @@
     <div
       class="left-50 lg:sticky lg:top-0 lg:h-screen lg:w-1/2 lg:p-10 md:p-10 p-5 z-10 flex flex-col justify-between"
     >
-      <div class="lg:space-y-4 space-y-2 lg:mt-20 lg:max-w-1/4">
-        <h1 class="lg:text-2xl text-xl font-bold text-t-cyan">Quick Access</h1>
+      <div class="lg:space-y-4 space-y-2 lg:mt-20 lg:max-w-1/3">
+        <h1 class="lg:text-2xl text-xl font-bold text-t-cyan">[ Navigate ]</h1>
         <div
           class="lg:text-md font-bold text-md flex flex-col space-y-4 opacity-80 text-fg"
         >
@@ -97,7 +97,7 @@
         </div>
         <div v-if="!isMobile" class="lg:space-y-4 space-y-2 lg:mt-20">
           <h1 class="lg:text-2xl text-xl font-bold text-t-cyan">
-            Featured Projects
+            [ Featured Projects ]
           </h1>
           <div class="flex flex-col text-fg font-bold space-y-2">
             <router-link
@@ -117,7 +117,9 @@
 
     <div class="lg:p-10 md:pl-10 md:pr-10 pl-5 pr-5 z-9999">
       <section class="text-red lg:max-w-xl space-y-2 lg:pt-14 pb-6 text-fg">
-        <h1 class="text-t-cyan text-xl text-fg font-bold pt-6 pb-2">ABOUT</h1>
+        <h1 class="text-t-cyan text-xl text-fg font-bold pt-6 pb-2">
+          [ ABOUT ]
+        </h1>
         <p class="mb-4">
           Hi, I’m Josh Wolfe, a former fine-finish carpenter turned low-level
           software engineer.
