@@ -41,18 +41,18 @@
         >
           <router-link
             to="/projects"
-            class="hover:text-t-lightgreen transition transition-all duration-100 hover:text-xl"
+            class="hover:text-t-lightgreen transition transition-all duration-100 hover:translate-x-2"
           >
             PROJECTS
           </router-link>
           <router-link
             to="/blog"
-            class="hover:text-t-lightgreen transition transition-all duration-100 hover:text-xl"
+            class="hover:text-t-lightgreen transition transition-all duration-100 hover:translate-x-2"
             >BLOG</router-link
           >
           <router-link
             to="/contact"
-            class="hover:text-t-lightgreen transition transition-all duration-100 hover:text-xl"
+            class="hover:text-t-lightgreen transition transition-all duration-100 hover:translate-x-2"
             >CONTACT</router-link
           >
         </div>
@@ -67,9 +67,9 @@
           </a>
           <a href="https://github.com/jpwol" target="_blank" rel="noopener">
             <img
-              src="../assets/github.svg"
+              src="https://cdn.simpleicons.org/github"
               alt="Github"
-              class="w-6 h-6 mt-1 transition-transform transform hover:scale-125"
+              class="invert w-6 h-6 mt-1 transition-transform transform hover:scale-125"
             />
           </a>
           <a
@@ -89,9 +89,9 @@
             rel="noopener"
           >
             <img
-              src="../assets/instagram.svg"
+              src="https://cdn.simpleicons.org/instagram/ffffff"
               alt="Github"
-              class="w-8 h-8 invert transition-transform transform hover:scale-125"
+              class="relative top-1 w-6 h-6 transition-transform transform hover:scale-125"
             />
           </a>
         </div>
@@ -102,12 +102,12 @@
           <div class="flex flex-col text-fg font-bold space-y-2">
             <router-link
               :to="`/projects/thorn`"
-              class="transition transition-all duration-100 hover:text-xl hover:text-t-lightgreen"
+              class="transition transition-all duration-100 hover:translate-x-2 hover:text-t-lightgreen"
               >thorn.nvim</router-link
             >
             <router-link
               :to="`/projects/bitwisecli`"
-              class="transition transition-all duration-100 hover:text-lg hover:text-t-lightgreen"
+              class="transition transition-all duration-100 hover:translate-x-2 hover:text-t-lightgreen"
               >bitwise-cli</router-link
             >
           </div>
