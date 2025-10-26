@@ -1,12 +1,12 @@
 <template>
   <nav
-    class="lg:fixed top-0 w-full z-50 bg-none text-white p-4 flex justify-between items-around"
+    class="lg:fixed top-0 w-full z-50 bg-none p-4 flex justify-between items-around"
   >
     <div class="text-xl font-bold pr-5 text-t-orange">
       {{ pageTitle }}
     </div>
 
-    <div class="flex space-x-6">
+    <div class="flex lg:space-x-6 space-x-4 lg:text-lg lg:mt-0 mt-1 text-sm">
       <router-link to="/" class="navItem">[ Home ]</router-link>
       <router-link to="/projects" class="navItem">[ Projects ]</router-link>
       <router-link to="/blog" class="navItem">[ Blog ]</router-link>
@@ -35,25 +35,6 @@ const pageTitle = computed(() => route.meta.title);
 
 .navItem:hover {
   color: var(--color-t-lightgreen);
-  transform: translateX(-2px);
-}
-
-.fade-slide-enter-active,
-.fade-slide-leave-active {
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
-}
-
-.fade-slide-enter-from,
-.fade-slide-leave-to {
-  opacity: 0;
-  transform: translateY(-5px);
-}
-
-.fade-slide-enter-to,
-.fade-slide-leave-from {
-  opacity: 1;
-  transform: translateY(0);
+  transform: translateX(-4px);
 }
 </style>
